@@ -14,19 +14,19 @@
         var result
         var allCovidData
         window.onload = () => {
-            axios.get("   https://corona.lmao.ninja/v2/countries/").then(function (response) {
+            axios.get(" https://corona.lmao.ninja/v2/countries/").then(function (response) {
                 allCovidData = response.data
-              //  console.log(allCovidData)
+                //console.log(allCovidData)
 
                 result = allCovidData.map(word => {
                     return word.todayRecovered
                 });
-               // console.log(result)
+               //console.log(result)
 
                 result = result.filter(word =>{
                     return word != 0
                 })
-               // console.log(result)
+               //console.log(result)
 
                 result = result.reduce((sum,number)=>{
                     return sum+number

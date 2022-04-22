@@ -40,7 +40,7 @@
                 console.log(res)
 
                 result = res.filter(word => {
-                    return word.gender == "male" && word.friends.length > 2
+                    return word.gender == "male" && word.friends.length >= 2
                 });
                 console.log(result)
 
@@ -53,7 +53,7 @@
                 console.log(result)
                 
 
-                debugger;
+                
                 const ff =(x)=>{
                     let gen = "";
                     for (let index = 0; index < result[x].friends.length; index++) {
