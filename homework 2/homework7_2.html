@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var result
+        var allCovidData
+        window.onload = () => {
+            axios.get("   https://corona.lmao.ninja/v2/countries/").then(function (response) {
+                allCovidData = response.data
+              //  console.log(allCovidData)
+
+                result = allCovidData.map(word => {
+                    return word.todayRecovered
+                });
+               // console.log(result)
+
+                result = result.filter(word =>{
+                    return word != 0
+                })
+               // console.log(result)
+
+                result = result.reduce((sum,number)=>{
+                    return sum+number
+                },0)
+                console.log(result)
+
+                result = allCovidData.filter(word => {
+                    return word.todayDeaths < 10 && word.population > 100000000
+                });
+                //console.log(result)
+
+                result = result.map(word => {
+                    return word.country
+                });
+                console.log(result)
+
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>
